@@ -20,24 +20,30 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function Templates() {
+  const [description, setDescription] = useState('TO DO');
+
   const classes = useStyles();
   return (
     <Container className= {classes.container}>
-      <Card className= {classes.root}>
-        <Example description= {descriptions[0]}/>
-        <Tasks/>
-        <Tasks/>
-        <Form/>
-
-      </Card>
-      <Card className= {classes.root}>
-        <Example description= {descriptions[1]}/>
-      </Card>
-      <Card className= {classes.root}>
-        <Example description= {descriptions[2]}/>
-      </Card>
+      <Container>
+        <Card className= {classes.root}>
+          <Example description= {description}/>
+          <Form/>
+        </Card>
+      </Container>
     </Container>
   );
 };
 
 export default Templates;
+
+// <Container>
+//   <Card className= {classes.root}>
+//     <Example description= {descriptions[1]}/>
+//   </Card>
+// </Container>
+// <Container>
+//   <Card className= {classes.root}>
+//     <Example description= {descriptions[2]}/>
+//   </Card>
+// </Container>

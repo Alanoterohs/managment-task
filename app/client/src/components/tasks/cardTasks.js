@@ -13,12 +13,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Tasks({ todo }) {
+function Tasks({ name }) {
   const classes = useStyles();
   return (
     <Card className= {classes.tasks}>
       <Typography className= {classes.font}>
-        tasks
+        {name}
       </Typography>
     </Card>
   );

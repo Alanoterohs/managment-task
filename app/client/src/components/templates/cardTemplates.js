@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
 import { Typography, Container, TextField } from '@material-ui/core';
-import Tasks from '../tasks/cardTasks';
+
 function Example(props) {
 
+  const [newTitle, setNewTitle] = useState(props.title);
   const [deploy, setDeploy] = useState(false);
+
+  const handleOnChange = (e) => {
+      setNewTitle(e.target.value);
+    };
 
   const handleFocus = () => {
     setDeploy(true);
@@ -14,14 +19,15 @@ function Example(props) {
       { deploy ?
         <TextField
           autoFocus
-          value= {props.title}
+          onChange= {handleOnChange}
+          value= {newTitle}
           fullWidth
           onBlur = {handleFocus}
         /> :
         <Typography
             onClick={() => setDeploy(!deploy)}
-            style= {{ color: 'white' }}
-            >{props.description}
+            style= {{ color: 'black' }}
+            >{props.title}
         </Typography>
       }
     </Container>

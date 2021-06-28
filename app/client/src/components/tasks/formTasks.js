@@ -39,7 +39,7 @@ function Form() {
     <Container>
       <form onSubmit = {handleOnSubmit}>
     <TextField
-      className={classes.input} id="outlined-basic" label="Outlined" variant="outlined"
+      className={classes.input} label="Outlined" variant="outlined"
       value= {description}
       onChange= {handleOnChange}
       placeholder="Add a new task"/>
@@ -48,8 +48,7 @@ function Form() {
       <div>
           {task.map((todo, index) => (
             <div key={index}>
-              <span> {todo.description} </span>
-              <Tasks/>
+              <Tasks name={todo.description}/>
             </div>
           ))}
       </div>
