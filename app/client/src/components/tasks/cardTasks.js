@@ -1,14 +1,27 @@
-// import React, { useState } from 'react';
-//
-// function Tasks({ todo }) {
-//
-//   return (
-//     <div>
-//         {todo.map((item, index) => (
-//           <span key={index}>{item.description}</span>
-//         ))}
-//     </div>
-//   );
-// }
-//
-// export default Tasks;
+import React, { useState } from 'react';
+import { Card, Container, Typography } from '@material-ui/core';
+import { makeStyles, } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({
+  tasks: {
+    width: '300px',
+    backgroundColor: '#272C34',
+    color: 'white',
+  },
+  font: {
+    margin: theme.spacing(2),
+  },
+}));
+
+function Tasks({ todo }) {
+  const classes = useStyles();
+  return (
+    <Card className= {classes.tasks}>
+      <Typography className= {classes.font}>
+        tasks
+      </Typography>
+    </Card>
+  );
+}
+
+export default Tasks;

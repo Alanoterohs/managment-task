@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-
 const examples = [{
   id: 1,
   name: 'University',

@@ -1,21 +1,31 @@
 import React, { useState } from 'react';
-
+import { Typography, Container, TextField } from '@material-ui/core';
+import Tasks from '../tasks/cardTasks';
 function Example(props) {
 
   const [deploy, setDeploy] = useState(false);
 
+  const handleFocus = () => {
+    setDeploy(true);
+  };
+
   return (
-    <div>
-        <div>
-        <span>{props.description}</span>
-        </div>
-    </div>
+    <Container>
+      { deploy ?
+        <TextField
+          autoFocus
+          value= {props.title}
+          fullWidth
+          onBlur = {handleFocus}
+        /> :
+        <Typography
+            onClick={() => setDeploy(!deploy)}
+            style= {{ color: 'white' }}
+            >{props.description}
+        </Typography>
+      }
+    </Container>
   );
-}
-// onBlur = {() => setDeploy(!deploy)}
-// <input
-//   value= {props.title}
-//   onClick = {() => setDeploy(!deploy)}
-//   />
+};
 
 export default Example;

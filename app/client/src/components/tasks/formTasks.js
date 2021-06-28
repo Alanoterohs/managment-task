@@ -1,7 +1,17 @@
 import React, { useState } from 'react';
-//import Tasks from './cardTasks';
+import { Card, Container, TextField, Button, } from '@material-ui/core';
+import { makeStyles, } from '@material-ui/core/styles';
+import Tasks from './cardTasks';
 
-function Tasks() {
+const useStyles = makeStyles((theme) => ({
+  input: {
+    backgroundColor: 'white',
+    margin: theme.spacing(1),
+  },
+}));
+
+function Form() {
+  const classes = useStyles();
   const [description, setDescription] = useState('');
   const [task, setTask] = useState([]);
 
@@ -14,8 +24,7 @@ function Tasks() {
 
   const handleOnChange = (e) => {
       setDescription(e.target.value)
-  };
-
+    };
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
@@ -27,27 +36,26 @@ function Tasks() {
     };
 
   return (
-    <div>
+    <Container>
       <form onSubmit = {handleOnSubmit}>
-      <input
-      type="text"
-      placeholder="Add a new todo"
+    <TextField
+      className={classes.input} id="outlined-basic" label="Outlined" variant="outlined"
       value= {description}
       onChange= {handleOnChange}
-      />
-      <button >Add</button>
+      placeholder="Add a new task"/>
       </form>
         <br></br>
       <div>
           {task.map((todo, index) => (
             <div key={index}>
               <span> {todo.description} </span>
+              <Tasks/>
             </div>
           ))}
       </div>
-    </div>
+    </Container>
   );
 };
 
 
-export default Tasks;
+export default Form;
